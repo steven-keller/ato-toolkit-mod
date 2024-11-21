@@ -38,3 +38,5 @@ Set-Item -Path WSMan:\localhost\MaxEnvelopeSizekb -Value 8192
 # Set Local Admin account password expires True (V-205658)
 $localAdmin = Get-LocalUser | Where-Object Description -eq "Built-in account for administering the computer/domain"
 Set-LocalUser -name $localAdmin.Name -PasswordNeverExpires $false
+
+Write-Eventlog -LogName Application -Source "Application" -EntryType Information -EventId 3323 -Message "Yeah, this ran.  I'm a happy script."
